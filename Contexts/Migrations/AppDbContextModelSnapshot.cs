@@ -47,6 +47,53 @@ namespace EFCore03.Contexts.Migrations
                     b.HasIndex("ParentCategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Everything about writing code",
+                            Name = "Programming"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Design"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Server-side development",
+                            Name = "Backend",
+                            ParentCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Browser-side development",
+                            Name = "Frontend",
+                            ParentCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Description = "Apps for phones",
+                            Name = "Mobile Development",
+                            ParentCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Web apps with .NET",
+                            Name = "ASP.NET",
+                            ParentCategoryId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "UI Design",
+                            ParentCategoryId = 5
+                        });
                 });
 
             modelBuilder.Entity("EFCore03.Entities.Course", b =>
@@ -94,6 +141,76 @@ namespace EFCore03.Contexts.Migrations
                     b.HasIndex("InstructorId");
 
                     b.ToTable("Courses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 3,
+                            Description = "Build your first web app",
+                            InstructorId = 1,
+                            IsPublished = true,
+                            Level = "Beginner",
+                            Price = 499.99m,
+                            PublishedAt = new DateTime(2025, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "ASP.NET Core Fundamentals"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 3,
+                            InstructorId = 1,
+                            IsPublished = true,
+                            Level = "Advanced",
+                            Price = 799.00m,
+                            PublishedAt = new DateTime(2025, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Advanced EF Core"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 1,
+                            Description = "Start from zero",
+                            InstructorId = 2,
+                            IsPublished = true,
+                            Level = "Beginner",
+                            Price = 299.00m,
+                            PublishedAt = new DateTime(2024, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "C# for Beginners"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 2,
+                            Description = "Design clean APIs",
+                            InstructorId = 2,
+                            IsPublished = false,
+                            Level = "Intermediate",
+                            Price = 549.50m,
+                            Title = "REST API Design"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 4,
+                            InstructorId = 3,
+                            IsPublished = true,
+                            Level = "Beginner",
+                            Price = 199.00m,
+                            PublishedAt = new DateTime(2025, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "HTML & CSS Basics"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 6,
+                            Description = "Layout, color, typography",
+                            InstructorId = 3,
+                            IsPublished = false,
+                            Level = "Intermediate",
+                            Price = 399.00m,
+                            Title = "UI Design Principles"
+                        });
                 });
 
             modelBuilder.Entity("EFCore03.Entities.Enrollment", b =>
@@ -162,6 +279,31 @@ namespace EFCore03.Contexts.Migrations
                         .IsUnique();
 
                     b.ToTable("Instructors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Bio = "Senior .NET developer and trainer",
+                            Email = "ahmed.hassan@example.com",
+                            FullName = "Ahmed Hassan",
+                            JoinedAt = new DateTime(2023, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "sara.mostafa@example.com",
+                            FullName = "Sara Mostafa",
+                            JoinedAt = new DateTime(2023, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Bio = "UI/UX designer",
+                            Email = "omar.khaled@example.com",
+                            FullName = "Omar Khaled",
+                            JoinedAt = new DateTime(2024, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("EFCore03.Entities.Student", b =>

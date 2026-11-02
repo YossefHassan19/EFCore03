@@ -16,6 +16,12 @@
 
             #endregion
 
+            #region Add separate Migration for the seed data
+
+            //Add separate Migration for the seed data
+
+            #endregion
+
         }
     }
 }
