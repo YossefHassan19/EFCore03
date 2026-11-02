@@ -1,4 +1,5 @@
-﻿using EFCore03.Entities;
+﻿using EFCore03.Contexts;
+using EFCore03.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -28,6 +29,8 @@ namespace EFCore03.Config
                    .WithOne(c => c.Category)
                    .HasForeignKey(c => c.CategoryId)
                    .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasData(SeedData.Categories);
 
         }
     }

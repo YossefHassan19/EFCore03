@@ -1,4 +1,5 @@
-﻿using EFCore03.Entities;
+﻿using EFCore03.Contexts;
+using EFCore03.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -26,6 +27,8 @@ namespace EFCore03.Config
                    .WithOne(e => e.Course)
                    .HasForeignKey(e => e.CourseId)
                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasData(SeedData.Courses);
 
         }
     }
